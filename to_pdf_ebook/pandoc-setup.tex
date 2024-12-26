@@ -1,0 +1,51 @@
+% === Document Setup ===
+% Modify document class settings after Pandoc's initialization
+\AtBeginDocument{
+    % Set font size, and the the baseline skip - the distance between baselines of consecutive lines of text
+    % 17pt/14pt ≈ 1.21, this ratio gives comfortable spacing between lines (common ratio is approximately 1.2 to 1.4 times the font size)
+    \renewcommand{\normalsize}{\fontsize{14pt}{17pt}\selectfont}
+    \normalsize
+    % Set page margins
+    \usepackage[margin=0.8cm]{geometry}
+}
+
+% Fix page number positioning
+\setlength{\footskip}{0.6cm}
+
+% === Hyperlink Styling ===
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=gray,    % Internal links (including TOC)
+    urlcolor=red      % External URLs
+}
+
+% === Code Block Formatting ===
+\usepackage{fancyvrb}
+\usepackage{fvextra}  % For breaklines support
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.95}
+
+% Configure code block appearance
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+    commandchars=\\\{\},    % Enable command characters in code blocks
+    numbers=left,           % Show line numbers
+    numbersep=5pt,          % Space between numbers and code
+    fontsize=\small,        % Smaller font for code
+    baselinestretch=1,      % Line spacing
+    tabsize=2,              % 2-space tabs
+    breaklines=true,        % Enable line breaking
+    breakanywhere=true,     % Allow breaks anywhere
+    frame=single,           % Add frame around code
+    framesep=2mm,           % Frame padding
+    rulecolor=\color{black!10},  % Frame color
+    fontfamily=tt           % Use monospace font
+}
+
+% Ensure proper line width for code blocks
+\setlength{\linewidth}{\textwidth}
+
+% Add spacing above and below code blocks
+\renewenvironment{Shaded}
+  {\begin{snugshade}\vspace{0.2em}}
+  {\vspace{0.2em}\end{snugshade}}
