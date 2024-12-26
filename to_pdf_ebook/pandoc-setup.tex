@@ -1,11 +1,7 @@
 % === Document Setup ===
-% Modify document class settings after Pandoc's initialization
-\AtBeginDocument{
-    % Set font size, and the the baseline skip - the distance between baselines of consecutive lines of text
-    % 17pt/14pt ≈ 1.21, this ratio gives comfortable spacing between lines (common ratio is approximately 1.2 to 1.4 times the font size)
-    \renewcommand{\normalsize}{\fontsize{14pt}{17pt}\selectfont}
-    \normalsize
-}
+% Use larger base font size and extended article class for better readability
+\RequirePackage{fix-cm}
+\usepackage[fontsize=14pt]{fontsize}
 
 % Set page margins
 \usepackage[margin=0.8cm]{geometry}
