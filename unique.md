@@ -40,7 +40,7 @@ Here `x` is a pointer to a location on the heap which contains the value `75`.
 `x` has type `Box<i32>`; we could have written `let x: Box<i32> =
 Box::new(75);`. This is similar to writing `int* x = new int(75);` in C++.
 Unlike in C++, Rust will tidy up the memory for us, so there is no need to call
-`free` or `delete`[^1]. Unique pointers behave similarly to
+`free` or `delete`[^unique-1]. Unique pointers behave similarly to
 values - they are deleted when the variable goes out of scope. In our example,
 at the end of the function `foo`, `x` can no longer be accessed and the memory
 pointed at by `x` can be reused.
@@ -169,7 +169,7 @@ Sometimes when programming, however, we need more than one reference to a value.
 For that, Rust has borrowed pointers. I'll cover those in the next post.
 
 
-[^1]: The `std::unique_ptr<T>`, introduced in C++11, is similar in some aspects
+[^unique-1]: The `std::unique_ptr<T>`, introduced in C++11, is similar in some aspects
     to Rust's `Box<T>` but there are also significant differences.
 
     Similarities:
