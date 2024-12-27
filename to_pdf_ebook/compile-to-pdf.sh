@@ -28,6 +28,7 @@ pandoc \
     --highlight-style my.theme \
     -H pandoc-setup.tex \
     --toc \
+    -V boxlinks=true \
     -s \
     ${SOURCE_FILES} \
     -o r4cppp.pdf
